@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: rgb(231, 231, 231);
+      background: linear-gradient(90deg, rgba(231, 231, 231, 1) 0%, rgba(31, 95, 112, 1) 100%);
+      color: #000000;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: black;
+      padding: 10px 0;
+      text-align: center;
+      border-radius: 30px;
+      margin-top: 10px;
+    }
+
+    .navbar nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 10px;
+      padding: 10px 15px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar nav a:hover {
+      transform: scale(1.1);
+      color: red;
+    }
+
+    /* Home Page Section Styles */
+    .hello {
+      color: #462eff;
+    }
+
+    .mishra {
+      color: #462eff;
+    }
+
+    .home {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: black;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .home h3 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    .home h1 {
+      font-size: 48px;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .home h4 {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .home p {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .home .photo img {
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border: 1px solid #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .home .photo img:hover {
+      transform: scale(1.1);
+    }
+
+    .social-lnk {
+      margin-top: 20px;
+      border: 1px solid white;
+      border-radius: 20px;
+    }
+
+    .social-lnk a {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .social-lnk img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      margin: 5px;
+    }
+
+    .social-lnk img:hover {
+      transform: scale(1.2);
+    }
+
+    .element {
+      color: #2a3792;
+    }
+
+    /* About Section Styles */
+    .about {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .about .photo2 {
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 2px solid black;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      flex: 0 0 auto;
+    }
+
+    .about .photo2 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text-content {
+      flex: 1 1 60%;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    .about h1 {
+      font-size: 36px;
+      color: #333;
+      margin: 20px 0;
+    }
+
+    .about h1 span {
+      color: #6c5ce7;
+    }
+
+    .about h3 {
+      font-size: 24px;
+      color: #555;
+    }
+
+    .about p {
+      font-size: 16px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #6c5ce7;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .read-more-btn:hover {
+      background-color: #4a3eb1;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about .photo2 {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+      }
+
+      .text-content {
+        flex: 1 1 auto;
+      }
+    }
+
+    /* Container for Skills Section */
+
+    .skills-content {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px; /* Add margin if needed for spacing */
+    }
+
+    .skills-content h2 {
+      color: #6c5ce7;
+    }
+
+    .skills-content p {
+      color: #555;
+    }
+
+    .skills-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Box Style for Language Skills */
+    .language-skills {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-skills h2 {
+      color: #6c5ce7;
+    }
+
+    /* Box Style for Development Skills */
+    .development-skills {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .development-skills h2 {
+      color: #6c5ce7;
+    }
+
+    /* Circle Bar Styles */
+    .circle-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .circle {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #333;
+      color: white;
+    }
+
+    .bar {
+      position: absolute;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      clip: rect(0px, 100px, 100px, 50px);
+    }
+
+    .bar:before {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      clip: rect(0px, 50px, 100px, 0px);
+      background: yellow;
+      transform: rotate(calc(var(--percentage) * 3.6deg));
+      transform-origin: center;
+    }
+
+    .bar:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      clip: rect(0px, 100px, 100px, 50px);
+      background: #333;
+      transform: rotate(calc(var(--percentage) * 3.6deg));
+      transform-origin: center;
+    }
+
+    .circle-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* Progress Bar Styles */
+    .progress-bar {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border :1px solid black
+    }
+
+    .progress {
+      height: 20px;
+      border-radius: 20px;
+      transition: width 0.5s ease-in-out;
+    }
+
+    .progress.html {
+      width: 90%;
+      background-color: #e44d26;
+    }
+
+    .progress.css {
+      width: 80%;
+      background-color: #264de4;
+    }
+
+    .progress.js {
+      width: 70%;
+      background-color: #f0db4f;
+    }
+
+    .progress.react {
+      width: 20%;
+      background-color: #61dafb;
+    }
+
+    /* Text Content */
+    .language-skill p,
+    .skill p {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
+    /* Projects Section Style */
+    .projects {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: rgba(255, 255, 255, 0.9); /* Slightly lighter background for better contrast */
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Slightly more prominent shadow */
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }
+
+    .projects h2 {
+      font-size: 36px; /* Increase font size for better visibility */
+      color: #333;
+      margin-bottom: 30px; /* Increase space below the heading */
+    }
+
+    .project {
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column; /* Align items vertically for better mobile responsiveness */
+      align-items: center; /* Center align items */
+      background-color: rgba(241, 241, 241, 0.9); /* Slightly lighter background */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      max-width: 600px; /* Limit the width for better readability */
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow effect on hover */
+    }
+
+    .project img {
+      width: 100%;
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 15px; /* Add spacing below the image */
+    }
+
+    .project-content {
+      text-align: center;
+    }
+
+    .project-content h3 {
+      color: #6c5ce7;
+      margin-bottom: 10px;
+    }
+
+    .project-content p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    /* Footer Style */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+      margin-top: 50px;
+    }
+
+    footer p a {
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: white;
+
+    }
+
+    footer p a:hover {
+      color: blue;
+    }
+
+    footer .social-lnk a {
+      margin-top: 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    footer .social-lnk a:hover {
+      color: red;
+      cursor: pointer;
+    }
+
+    footer .social-lnk img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    hr {
+      color: black;
+      border-color: black;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: grey;
+
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: red;
+      border-radius: 10px;
+    }
+
+
+    /* Dark Mode Styles */
+    .dark-mode {
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(31, 95, 112, 1) 100%);
+      color: white;
+    }
+
+    .dark-mode .about-content {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+    }
+
+    .dark-mode .about .photo2 {
+      border: 2px solid #fff;
+    }
+
+    .dark-mode .read-more-btn {
+      background-color: #333;
+      color: #fff;
+    }
+    /* Media Queries for Responsiveness */
+
+    /* Tablets and smaller devices */
+    @media (max-width: 768px) {
+      .navbar nav a {
+        font-size: 16px;
+        padding: 8px 12px;
+      }
+
+      .home .photo img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .about-content {
+        flex-direction: column;
+      }
+
+      .about .photo2 {
+        width: 250px;
+        height: 250px;
+      }
+
+      .text-content {
+        padding: 0;
+        text-align: center;
+      }
+
+      .skills-section {
+        grid-template-columns: 1fr;
+      }
+
+      .projects h2 {
+        font-size: 30px;
+      }
+    }
+
+    /* Mobile devices */
+    @media (max-width: 480px) {
+      .home h1 {
+        font-size: 32px;
+      }
+
+      .home p {
+        font-size: 14px;
+      }
+
+      .social-lnk img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .about h1 {
+        font-size: 28px;
+      }
+
+      .about h3 {
+        font-size: 20px;
+      }
+
+      .about p {
+        font-size: 14px;
+      }
+
+      .circle {
+        width: 100px;
+        height: 100px;
+      }
+
+      .progress-bar {
+        height: 15px;
+      }
+
+      .progress {
+        height: 15px;
+      }
+
+      .projects h2 {
+        font-size: 24px;
+      }
+
+      .project {
+        padding: 15px;
+      }
+    }
+
+    /* Hamburger icon - Hidden on desktop */
+.hamburger-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger-icon span {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Navigation - Hidden by default */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background-color: black;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav a:hover {
+  color: red;
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: flex;
+  }
+
+  .mobile-nav.active {
+    display: flex;
+  }
+}
+
+/* Styles for the menu when hamburger icon is clicked */
+.hamburger-icon.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hamburger-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<!-- Mobile Navigation Menu -->
+<div class="mobile-nav">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</div>
+
+  <!-- Home Page Section -->
+  <section id="home" class="home container">
+    <h3>Hello <span class="hello">I'm</span></h3>
+    <h1>Krishankant <span class="mishra">Mishra</span></h1>
+    <h4>Web Developer</h4>
+    <p>Welcome to my portfolio website. I'm a passionate web developer skilled in front-end technologies.</p>
+    <div class="photo">
+      <img src="portphoto.png" alt="Krishankant Mishra">
+    </div>
+    <div class="social-lnk">
+      <a href="https://www.instagram.com/"><img src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png" height="10px" alt="Instagram"></a>
+      <a href="https://www.facebook.com/index.php/"><img src="https://cdn-icons-png.flaticon.com/128/15047/15047435.png" height="10px" alt="Facebook"></a>
+      <a href="https://x.com/?lang=en-in"><img src="https://cdn-icons-png.flaticon.com/128/3670/3670151.png" alt="Twitter"></a>
+      <a href="https://in.linkedin.com/"><img src="https://cdn-icons-png.flaticon.com/128/4494/4494497.png" alt="LinkedIn"></a>
+    </div>
+  </section>
+  <br>
+  <hr><br>
+
+  <!-- About Section -->
+  <section id="about" class="about container">
+    <div class="about-content">
+      <div class="photo2">
+        <img src="proimage.jpg" alt="Krishankant Mishra">
+      </div>
+      <div class="text-content">
+        <h1>About <span>Me</span></h1>
+        <h3>Web Developer & Designer</h3>
+        <p>I am a passionate web developer with experience in creating dynamic and responsive websites using the latest
+          web technologies. I am always eager to learn new skills and improve my craft.</p>
+        <a href="#" id="read-more-btn" class="read-more-btn">Switch Mode</a>
+
+      </div>
+    </div>
+  </section>
+  <br>
+  <hr><br>
+  <!-- Skills Section -->
+  <section id="skills" class="skills container">
+    <div class="skills-content">
+      <h2>My Skills</h2>
+      <p>I have a diverse set of skills, ranging from design to development. Here are some of the skills I possess:</p>
+    </div><br>
+    <div class="skills-section">
+      
+      <!-- Language Skills -->
+      <div class="language-skills">
+        <h2>Language Skills</h2><hr>
+        <div class="language-skill">
+          <h3>C</h3>
+          <div class="circle-bar">
+            <div class="circle">
+              <div class="bar" data-skill="70"></div>
+              <div class="circle-content">70%</div>
+            </div>
+          </div>
+          <p>Proficient in C programming language with a solid understanding of its core concepts.</p>
+        </div><hr>
+        <div class="language-skill">
+          <h3>C++</h3>
+          <div class="circle-bar">
+            <div class="circle">
+              <div class="bar" data-skill="70"></div>
+              <div class="circle-content">70%</div>
+            </div>
+          </div>
+          <p>Experience with C++ programming for object-oriented design and system-level applications.</p>
+        </div><hr>
+       
+      </div>
+
+      <!-- Development Skills -->
+      <div class="development-skills">
+        <h2>Development Skills</h2><hr>
+        <div class="skill">
+          <h3>HTML</h3>
+          <div class="progress-bar">
+            <div class="progress html"></div>
+          </div>
+          <p>Experienced in creating semantic and accessible HTML5 markup.</p>
+        </div><hr>
+        <div class="skill">
+          <h3>CSS</h3>
+          <div class="progress-bar">
+            <div class="progress css"></div>
+          </div>
+          <p>Skilled in designing responsive and visually appealing layouts using CSS3.</p>
+        </div><hr>
+        <div class="skill">
+          <h3>JavaScript</h3>
+          <div class="progress-bar">
+            <div class="progress js"></div>
+          </div>
+          <p>Proficient in JavaScript for dynamic and interactive web applications.</p>
+        </div><hr>
+        <!-- <div class="skill">
+          <h3>React</h3>
+          <div class="progress-bar">
+            <div class="progress react"></div>
+          </div>
+          <p>Experience in building user interfaces with React and managing state with Redux.</p>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+  <hr><br>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects container">
+    
+    <h2>My Projects</h2><hr>
+    <div class="project">
+     <a href="https://krishankant1234.github.io/todo-list/"> <img src="Screenshot (5).png" alt="Project 1"></a>
+      <div class="project-content">
+        <h3>Project 1</h3>
+        <p>TODO List. </p>
+      </div>
+    </div><hr>
+    <div class="project">
+      <a href=" https://krishankant1234.github.io/MY-Myntra/"><img src="Screenshot (3).png" alt="Project 2"></a>
+      <div class="project-content">
+        <h3>Project 2</h3>
+        <p>Myntra Clone. </p>
+      </div>
+    </div><hr>
+    <div class="project">
+     <a href="https://krishankant1234.github.io/Weather-Forecast-Website/"><img src="Screenshot (4).png" alt="Project 3"></a> 
+      <div class="project-content">
+        <h3>Project 3</h3>
+        <p>Weather Forecast Website</p>
+      </div> 
+    </div>
+  </section>
+<br>
+  <hr><br>
+  <!-- Footer -->
+  <footer id="contact">
+    <p><u>Contact me at</u>: <a href="mailto:krishankantmishra341@gmail.com">krishankantmishra341@gmail.com</a></p>
+    <div class="social-lnk">
+      <a href="#home">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <br>
+    <p>&copy; 2024 Krishankant Mishra. </p>
+    <p> All rights reserved </p>
+  </footer>
+  <script>
+   
+    document.getElementById('read-more-btn').addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent default link behavior
+      var aboutSection = document.querySelector('.about');
+      aboutSection.classList.toggle('dark-mode'); // Toggle the dark-mode class
+    });
+
+    //skills 
+    document.querySelectorAll('.bar').forEach(function(bar) {
+      var percentage = bar.getAttribute('data-skill');
+      bar.style.setProperty('--percentage', percentage);
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+const mobileNav = document.querySelector('.mobile-nav');
+
+hamburgerIcon.addEventListener('click', () => {
+  hamburgerIcon.classList.toggle('active');
+  mobileNav.classList.toggle('active');
+});
+  </script>
+
+</body>
+
+</html>
